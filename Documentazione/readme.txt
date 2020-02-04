@@ -38,3 +38,14 @@ https://stackblitz.com/
 
 Angula CLI
 https://cli.angular.io/
+
+########## Installazione
+npm install -g @angular/cli
+
+ng version
+
+########## Creare app helloworld
+ng new helloworld
+
+########## Lanciare ap helloworld
+ng serve
