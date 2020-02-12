@@ -1,4 +1,21 @@
-Guida ufficiale: https://www.typescriptlang.org/
+TypeScript
+https://www.typescriptlang.org/
+
+Codewars
+https://www.codewars.com/
+
+Stackblitz
+https://stackblitz.com/
+
+Angula CLI
+https://cli.angular.io/
+
+RxJS
+https://rxjs-dev.firebaseapp.com/
+
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
 
 ########## Install TypeScript global
 npm i -g typescript
@@ -30,14 +47,7 @@ nvm use
 Linux:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 
-Codewars
-https://www.codewars.com/
 
-Stackblitz
-https://stackblitz.com/
-
-Angula CLI
-https://cli.angular.io/
 
 ########## Installazione
 npm install -g @angular/cli
