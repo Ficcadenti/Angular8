@@ -1,3 +1,4 @@
+import { UserService } from './users/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,7 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

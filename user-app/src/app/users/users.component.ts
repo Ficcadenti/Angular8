@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user.service';
 
 @Component(
     {
@@ -11,33 +12,11 @@ import { Component } from '@angular/core';
 
 export class UsersComponent {
     title: string = 'Users';
-    users: Array<{}> = [
+    users: Array<{}>;
+
+    constructor(service: UserService) {
         {
-            nome: 'Raffaele',
-            cognome: 'Ficcadenti',
-            cf: 'XXXXXX',
-            mail: 'raffaele.ficcadenti@gmail.com',
-            telefono: 'XXX-XXXXXXX',
-            provincia: 'Roma',
-            eta: 43
-        },
-        {
-            nome: 'Raffaele1',
-            cognome: 'Ficcadenti',
-            cf: 'XXXXXX',
-            mail: 'raffaele.ficcadenti@gmail.com',
-            telefono: 'XXX-XXXXXXX',
-            provincia: 'Roma',
-            eta: 43
-        },
-        {
-            nome: 'Raffaele2',
-            cognome: 'Ficcadenti',
-            cf: 'XXXXXX',
-            mail: 'raffaele.ficcadenti@gmail.com',
-            telefono: 'XXX-XXXXXXX',
-            provincia: 'Roma',
-            eta: 43
+            this.users = service.getUsers();
         }
-    ];
+    }
 }
