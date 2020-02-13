@@ -1,27 +1,46 @@
-# Angular8
-Angular8 esempi pratici
+# Angular
+Angular esempi pratici
 
-<h2>TypeScript</h2>
-<a href="https://www.typescriptlang.org/">https://www.typescriptlang.org</a><br>
+## TypeScript
+https://www.typescriptlang.org
 
-<h2>Codewars</h2>
-<a href="https://www.codewars.com/">https://www.codewars.com</a><br>
+## Codewars
+https://www.codewars.com
 
-<h2>Stackblitz</h2>
-<a href="https://stackblitz.com/">https://stackblitz.com</a><br>
+## Stackblitz
+https://stackblitz.com</a><br>
 
-<h2>Angula CLI</h2>
-<a href="https://cli.angular.io/">https://cli.angular.io</a><br>
+## Angula CLI
+https://cli.angular.io
 
-<h2>RxJS</h2>
-<a href="https://rxjs-dev.firebaseapp.com/">https://rxjs-dev.firebaseapp.com</a><br>
+## RxJS
+https://rxjs-dev.firebaseapp.com
 
 
-########## Installazione</br>
+</br></br></br>
+## Installazione</br>
 npm install -g @angular/cli</br>
 ng version</br>
 
-########## Creare app 'nome-app'</br>
+## Creare app 'nome-app'</br>
 ng new 'nome-app'</br>
+
+## Start server
+Esegui `ng serve` per un server di sviluppo. Passare a `http: // localhost: 4200 /`. L'app verrà ricaricata automaticamente se si modifica uno dei file di origine.
+
+## Code scaffolding
+Esegui `ng generate component component-name` per generare un nuovo componente. Puoi anche usare `ng generate direttiva | pipe | service | class | guard | interface | enum | module`.
+
+## Build
+Esegui `ng build` per compilare il progetto. Gli artefatti di compilazione saranno memorizzati nella directory `dist /`. Usa il flag `--prod` per un build di produzione.
+
+## Running unit tests
+Esegui `ng test` per eseguire i test unitari tramite [Karma] (https://karma-runner.github.io).
+
+## Running end-to-end tests
+Esegui `ng e2e` per eseguire i test end-to-end tramite [Goniometro] (http://www.protractortest.org/).
+
+## Further help
+Per ulteriori informazioni sulla CLI angolare, utilizzare `ng help` o consultare il [README della CLI angolare] (https://github.com/angular/angular-cli/blob/master/README.md).
 
 
