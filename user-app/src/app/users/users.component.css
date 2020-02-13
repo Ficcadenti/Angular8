@@ -1,9 +1,24 @@
 table{
     border: 1px solid #c0c0c0;
    }
-   th {
-     background: #000;
-     color: green;
-     padding: 5px;
-   }
    
+td,th {
+  padding: 5px;
+  border: 1px solid white;
+}
+
+th {
+     background:silver;
+     color: black;
+
+   }
+
+td {
+    background: #000;
+    color: green;
+  }
+
+caption{
+     color: rgb(166, 255, 0);
+     font-size: 25px;
+   }   
