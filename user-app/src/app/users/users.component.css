@@ -2,7 +2,7 @@ table{
     border: 1px solid #c0c0c0;
    }
    
-td,th {
+th {
   padding: 5px;
   border: 1px solid white;
 }
@@ -12,11 +12,6 @@ th {
      color: black;
 
    }
-
-td {
-    background: #000;
-    color: green;
-  }
 
 caption{
      color: rgb(166, 255, 0);

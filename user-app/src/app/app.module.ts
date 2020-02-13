@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { TestComponent } from './test/test.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
+    UserComponent,
     TestComponent
   ],
   imports: [

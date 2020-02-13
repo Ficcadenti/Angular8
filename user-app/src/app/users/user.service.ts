@@ -5,7 +5,7 @@ export class UserService {
     constructor() {
 
     }
-    getUsers() {
+    getUsers(): Array<{}> {
         let users = [
             {
                 nome: 'Raffaele',

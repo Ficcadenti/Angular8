@@ -9,14 +9,7 @@
         <th>Provincia</th>
         <th>eta</th>
     </tr>
-    <tr *ngFor="let user of users">
-        <td>{{user.nome}}</td>
-        <td>{{user.cognome}}</td>
-        <td>{{user.cf}}</td>
-        <td>{{user.mail}}</td>
-        <td>{{user.telefono}}</td>
-        <td>{{user.provincia}}</td>
-        <td>{{user.eta}}</td>
+    <tr app-user *ngFor="let user of users" [user-data]="user">
     </tr>
 </table>
 
