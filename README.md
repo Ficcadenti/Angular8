@@ -8,7 +8,7 @@ https://www.typescriptlang.org
 https://www.codewars.com
 
 ## Stackblitz
-https://stackblitz.com</a><br>
+https://stackblitz.com
 
 ## Angula CLI
 https://cli.angular.io
@@ -16,14 +16,12 @@ https://cli.angular.io
 ## RxJS
 https://rxjs-dev.firebaseapp.com
 
+## Install
+npm install -g @angular/cli
+ng version
 
-</br></br></br>
-## Installazione</br>
-npm install -g @angular/cli</br>
-ng version</br>
-
-## Creare app 'nome-app'</br>
-ng new 'nome-app'</br>
+## New app 'nome-app'
+ng new 'nome-app'
 
 ## Start server
 Esegui `ng serve` per un server di sviluppo. Passare a `http: // localhost: 4200 /`. L'app verrà ricaricata automaticamente se si modifica uno dei file di origine.
