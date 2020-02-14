@@ -10,8 +10,8 @@ import { User } from '../classes/User';
 })
 export class UserComponent implements OnInit {
   @Input('user-data') user: User;
-  @Output('onDeleteUser') onDeleteUser = new EventEmitter();
-  @Output('onSelectUser') onSelectUser = new EventEmitter();
+  @Output('onDeleteUser') onDeleteUser = new EventEmitter<User>();
+  @Output('onSelectUser') onSelectUser = new EventEmitter<User>();
   constructor(private service: UserService) { }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
 
@@ -9,6 +9,7 @@ import { User } from '../classes/User';
 })
 export class UserDetailComponent implements OnInit {
   @Input('user-selected') userSelected: User;
+  @Output('onSaveUser') onSaveUser = new EventEmitter<User>();
 
   constructor(private service: UserService) { }
 
@@ -18,6 +19,7 @@ export class UserDetailComponent implements OnInit {
   updateUser(): void {
     if (this.userSelected.id > 0) {
       this.service.updateUser(this.userSelected);
+      this.onSaveUser.emit(this.userSelected);
     }
   }
 

@@ -53,8 +53,7 @@ export class UserService {
     }
 
     updateUser(user: UserInterface) {
-        const idx = this.users.findIndex((v) => v.id == user.id);
-        alert(idx);
+        const idx = this.users.findIndex((v) => v.id === user.id);
         if (idx != -1) {
             this.users[idx] = user;
         }
