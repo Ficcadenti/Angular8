@@ -1,6 +1,6 @@
 import { EventEmitter, Output, Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { User } from '../interfaces/User';
+import { User } from '../classes/User';
 
 @Component(
     {
@@ -27,6 +27,7 @@ export class UsersComponent implements OnInit {
     }
 
     onSelectUser(user: User): void {
-        this.updateUser.emit(user);
+        const userCopy = Object.assign({}, user);
+        this.updateUser.emit(userCopy);
     }
 }

@@ -3,7 +3,7 @@
     <div class="users">
         <app-users (updateUser)="updateUser($event)"></app-users>
     </div>
-    <div class="usersDetail" *ngIf="userSelected">
+    <div class="usersDetail" *ngIf="showForm">
         <app-user-detail [user-selected]="userSelected"></app-user-detail>
     </div>
 </div>

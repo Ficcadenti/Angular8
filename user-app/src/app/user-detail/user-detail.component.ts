@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../interfaces/User';
+import { UserService } from '../services/user.service';
+import { User } from '../classes/User';
 
 @Component({
   selector: 'app-user-detail',
@@ -8,9 +9,16 @@ import { User } from '../interfaces/User';
 })
 export class UserDetailComponent implements OnInit {
   @Input('user-selected') userSelected: User;
-  constructor() { }
+
+  constructor(private service: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  updateUser(): void {
+    if (this.userSelected.id > 0) {
+      this.service.updateUser(this.userSelected);
+    }
   }
 
 }

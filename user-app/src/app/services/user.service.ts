@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces/User';
+import { UserInterface } from '../interfaces/UserInterface';
 
 @Injectable()
 export class UserService {
-    users: Array<User> = [
+    users: Array<UserInterface> = [
         {
+            id: 1,
             nome: 'Raffaele',
             cognome: 'Ficcadenti',
             cf: 'XXXXXX',
@@ -15,6 +16,7 @@ export class UserService {
             www: 'http://www.raffaeleficcadenti.it/'
         },
         {
+            id: 2,
             nome: 'Raffaele1',
             cognome: 'Ficcadenti',
             cf: 'XXXXXX',
@@ -25,6 +27,7 @@ export class UserService {
             www: 'http://www.raffaeleficcadenti.it/'
         },
         {
+            id: 3,
             nome: 'Raffaele2',
             cognome: 'Ficcadenti',
             cf: 'XXXXXX',
@@ -38,14 +41,22 @@ export class UserService {
     constructor() {
 
     }
-    getUsers(): Array<User> {
+    getUsers(): Array<UserInterface> {
         return this.users;
     }
 
-    deleteUser(user: User): void {
+    deleteUser(user: UserInterface): void {
         let idx = this.users.indexOf(user);
         if (idx >= 0) {
             this.users.splice(idx, 1);
+        }
+    }
+
+    updateUser(user: UserInterface) {
+        const idx = this.users.findIndex((v) => v.id == user.id);
+        alert(idx);
+        if (idx != -1) {
+            this.users[idx] = user;
         }
     }
 }
