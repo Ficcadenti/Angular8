@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/User';
 
 @Injectable()
 export class UserService {
-    users = [
+    users: Array<User> = [
         {
             nome: 'Raffaele',
             cognome: 'Ficcadenti',
@@ -10,7 +11,8 @@ export class UserService {
             mail: 'raffaele.ficcadenti@gmail.com',
             telefono: 'XXX-XXXXXXX',
             provincia: 'Roma',
-            eta: 43
+            eta: 43,
+            www: 'http://www.raffaeleficcadenti.it/'
         },
         {
             nome: 'Raffaele1',
@@ -19,7 +21,8 @@ export class UserService {
             mail: 'raffaele.ficcadenti@gmail.com',
             telefono: 'XXX-XXXXXXX',
             provincia: 'Roma',
-            eta: 43
+            eta: 43,
+            www: 'http://www.raffaeleficcadenti.it/'
         },
         {
             nome: 'Raffaele2',
@@ -28,17 +31,18 @@ export class UserService {
             mail: 'raffaele.ficcadenti@gmail.com',
             telefono: 'XXX-XXXXXXX',
             provincia: 'Roma',
-            eta: 43
+            eta: 43,
+            www: 'http://www.raffaeleficcadenti.it/'
         }
     ];
     constructor() {
 
     }
-    getUsers(): Array<{}> {
+    getUsers(): Array<User> {
         return this.users;
     }
 
-    deleteUser(user): void {
+    deleteUser(user: User): void {
         let idx = this.users.indexOf(user);
         if (idx >= 0) {
             this.users.splice(idx, 1);

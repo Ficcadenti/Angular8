@@ -5,6 +5,8 @@
 <td>{{user.telefono}}</td>
 <td>{{user.provincia}}</td>
 <td>{{user.eta}}</td>
+<td><a href='{{user.www}}' target="_blank">{{user.www}}</a></td>
 <td>
     <button class="delete" (click)="deleteUser()">Delete</button>
+    <button class="edit" (click)="editUser()">Edit</button>
 </td>

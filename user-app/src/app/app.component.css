@@ -1,0 +1,16 @@
+
+.main{
+    border: 1px;
+    width: 99%;
+    margin: auto;
+    vertical-align: top;
+}
+.users{
+    float:left;
+    width: 75%;
+    margin: auto;
+}
+.usersDetail{
+    float: left;
+    width: 20%;
+}
