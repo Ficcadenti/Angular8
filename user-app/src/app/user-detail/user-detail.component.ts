@@ -20,7 +20,14 @@ export class UserDetailComponent implements OnInit {
     if (this.userSelected.id > 0) {
       this.service.updateUser(this.userSelected);
       this.onSaveUser.emit(this.userSelected);
+    } else {
+      this.service.createUser(this.userSelected);
+      this.onSaveUser.emit(this.userSelected);
     }
+  }
+
+  resetForm(form): void {
+    form.reset();
   }
 
 }

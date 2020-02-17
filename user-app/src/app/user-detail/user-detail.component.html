@@ -1,4 +1,4 @@
-<form class="userForm">
+<form class="userForm" #fUserForm="ngForm"> {{fUserForm.form.value | json}}
     <div class="form-group">
         <label for="nome">Nome</label>
         <input [(ngModel)]="userSelected.nome" name="nome" id="nome">
@@ -32,6 +32,7 @@
         <input [(ngModel)]="userSelected.www" name="www" id="www">
     </div>
     <div class="form-group form-footer">
+        <button class="reset" (click)="resetForm(fUserForm.form)">Reset</button>
         <button class="btn-save" (click)="updateUser()">Save</button>
     </div>
 </form>
