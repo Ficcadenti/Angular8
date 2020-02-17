@@ -4,12 +4,14 @@ import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 
 import { AppComponent } from './app.component';
+import { UcfirstPipe } from './ucfirst.pipe';
 
 registerLocaleData(localeIt);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UcfirstPipe
   ],
   imports: [
     BrowserModule
