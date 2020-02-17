@@ -13,7 +13,7 @@ import { User } from '../classes/User';
 
 export class UsersComponent implements OnInit {
     @Output('updateUser') updateUser = new EventEmitter<User>();
-    title: string = 'Users';
+    title: string = 'Users list';
     users: Array<User>;
 
     constructor(private service: UserService) { }

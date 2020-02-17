@@ -1,12 +1,21 @@
 <td>{{user.nome}}</td>
 <td>{{user.cognome}}</td>
-<td>{{user.cf}}</td>
 <td>{{user.mail}}</td>
 <td>{{user.telefono}}</td>
 <td>{{user.provincia}}</td>
-<td>{{user.eta}}</td>
 <td><a href='{{user.www}}' target="_blank">{{user.www}}</a></td>
-<td>
-    <button class="delete" (click)="deleteUser()">Delete</button>
-    <button class="edit" (click)="editUser()">Edit</button>
+
+<td class="buttons">
+    <div class="row">
+        <div class="col-sm-6">
+            <button class="btn btn-primary btn-sm" (click)="editUser()">
+                <fa-icon [icon]='faEdit'></fa-icon>
+            </button>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-danger btn-sm" (click)="deleteUser()">
+                <fa-icon [icon]='faTrash'></fa-icon>
+            </button>
+        </div>
+    </div>
 </td>

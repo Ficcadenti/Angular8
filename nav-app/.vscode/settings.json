@@ -1,0 +1,4 @@
+{
+    "explorer.compactFolders": false,
+    "vscode.tsc.compiler.alertTSConfigChanges": "never"
+}

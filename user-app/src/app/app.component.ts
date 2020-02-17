@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './classes/User';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +23,5 @@ export class AppComponent {
   newUser(): void {
     this.userSelected = new User();
     this.showForm = true;
-
   }
 }

@@ -13,6 +13,13 @@ https://cli.angular.io/
 RxJS
 https://rxjs-dev.firebaseapp.com/
 
+Fontawensome
+https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+
+
+Bootstrap widgets
+https://ng-bootstrap.github.io/#/home
+
 #############################################################################################################################################
 #############################################################################################################################################
 #############################################################################################################################################
@@ -57,6 +64,22 @@ ng version
 ########## Creare app helloworld
 ng new helloworld
 
-########## Lanciare ap helloworld
+########## Lanciare app helloworld
 ng serve
 ng serve --port=4201
+
+########## Installare bootstrap
+npm install  --save bootstrap jquery
+
+########## Installare ng-bootstrap
+npm install --save @ng-bootstrap/ng-bootstrap
+ng add @angular/localize
+
+
+########## Installare fontawesome
+$ npm install @fortawesome/fontawesome-svg-core
+$ npm install @fortawesome/free-solid-svg-icons
+# See Compatibility table below to choose a correct version
+$ npm install @fortawesome/angular-fontawesome@<version>
+
+
