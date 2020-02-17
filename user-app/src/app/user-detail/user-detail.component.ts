@@ -8,8 +8,19 @@ import { User } from '../classes/User';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  @Input('user-selected') userSelected: User;
+  private __userSelected: User;
+  private userCopy: User;
+
+
   @Output('onSaveUser') onSaveUser = new EventEmitter<User>();
+
+  @Input('user-selected') set userSelected(userSelected) {
+    this.__userSelected = userSelected;
+    this.userCopy = Object.assign({}, userSelected);
+  }
+  get userSelected() {
+    return this.__userSelected;
+  }
 
   constructor(private service: UserService) { }
 
@@ -26,8 +37,12 @@ export class UserDetailComponent implements OnInit {
     }
   }
 
-  resetForm(form): void {
-    form.reset();
+  clearForm(form): void {
+    if (this.__userSelected.id === 0) {
+      this.__userSelected = new User();
+    } else {
+      this.__userSelected = this.userCopy;
+    }
   }
 
 }
