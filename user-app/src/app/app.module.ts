@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { FormsModule } from '@angular/forms'
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NavComponent } from './nav/nav.component';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavComponent } from './nav/nav.component';
     UserComponent,
     TestComponent,
     UserDetailComponent,
-    NavComponent
+    NavComponent,
+    ModalBasicComponent
   ],
   imports: [
     BrowserModule, FormsModule, FontAwesomeModule, NgbModule

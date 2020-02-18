@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <app-nav (onNewUser)="newUser()"></app-nav>
     <h1>User Management System</h1>
+    <app-modal-basic></app-modal-basic>
     <div class="row">
         <div class="col-md-8">
             <app-users (updateUser)="updateUser($event)"></app-users>

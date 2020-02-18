@@ -6,8 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
   @Output() onNewUser = new EventEmitter();
+  showMenu: boolean = false;
 
   constructor() {
   }
@@ -15,8 +15,12 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  newUser() {
+  newUser(): void {
     this.onNewUser.emit();
+  }
+
+  toggleMenu(): void {
+    this.showMenu = !this.showMenu;
   }
 
 }

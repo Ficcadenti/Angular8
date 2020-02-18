@@ -17,8 +17,11 @@ Fontawensome
 https://www.npmjs.com/package/@fortawesome/angular-fontawesome
 
 
-Bootstrap widgets
+NG-Bootstrap widgets
 https://ng-bootstrap.github.io/#/home
+
+NGX-Bootstrap
+https://valor-software.com/ngx-bootstrap/#/
 
 #############################################################################################################################################
 #############################################################################################################################################
