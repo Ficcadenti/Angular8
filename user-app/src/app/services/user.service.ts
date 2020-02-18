@@ -44,6 +44,9 @@ export class UserService {
     getUsers(): Array<UserInterface> {
         return this.users;
     }
+    getUser(id: number) {
+        return this.users[id];
+    }
 
     deleteUser(user: UserInterface): void {
         let idx = this.users.indexOf(user);

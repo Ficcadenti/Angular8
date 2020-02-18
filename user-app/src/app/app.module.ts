@@ -12,7 +12,28 @@ import { FormsModule } from '@angular/forms'
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NavComponent } from './nav/nav.component';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
+  },
+  {
+    path: 'users',
+    component: UsersComponent
+  },
+  {
+    path: 'users/new',
+    pathMatch: 'full',
+    component: UserDetailComponent
+  },
+  {
+    path: 'users/:id/edit',
+    component: UserDetailComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +45,7 @@ import { ModalBasicComponent } from './modal-basic/modal-basic.component';
     ModalBasicComponent
   ],
   imports: [
-    BrowserModule, FormsModule, FontAwesomeModule, NgbModule
+    BrowserModule, FormsModule, FontAwesomeModule, NgbModule, RouterModule.forRoot(routes),
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
