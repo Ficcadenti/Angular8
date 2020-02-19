@@ -7,14 +7,19 @@
 
 <td class="buttons">
     <div class="row">
-        <div class="col-sm-6">
-            <button class="btn btn-primary btn-sm" (click)="editUser()">
-                <fa-icon [icon]='faEdit'></fa-icon>
+        <div class="col-sm-4">
+            <button class="btn btn-primary btn-sm" (click)="infoUser()">
+                <fa-icon [icon]="['far', 'file-alt']"></fa-icon>
             </button>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
+            <button class="btn btn-primary btn-sm" (click)="editUser()">
+                <fa-icon [icon]="['far', 'edit']"></fa-icon>
+            </button>
+        </div>
+        <div class="col-sm-4">
             <button class="btn btn-danger btn-sm" (click)="deleteUser()">
-                <fa-icon [icon]='faTrash'></fa-icon>
+                <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
             </button>
         </div>
     </div>

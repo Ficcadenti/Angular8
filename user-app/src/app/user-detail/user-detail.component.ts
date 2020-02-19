@@ -1,7 +1,7 @@
 import { EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -23,14 +23,14 @@ export class UserDetailComponent implements OnInit {
     return this.__userSelected;
   }
 
-  constructor(private service: UserService, private route: ActivatedRoute) { }
+  constructor(private service: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.userSelected = new User();
+
     this.route.params.subscribe((params) => {
+      if (!params.id) { return; }
       this.userSelected = this.service.getUser(+params.id);
-      if (this.userSelected === undefined) {
-        this.userSelected = new User();
-      }
     });
   }
 
@@ -42,6 +42,7 @@ export class UserDetailComponent implements OnInit {
       this.service.createUser(this.userSelected);
       this.onSaveUser.emit(this.userSelected);
     }
+    this.router.navigate(['users']);
   }
 
   clearForm(form): void {
