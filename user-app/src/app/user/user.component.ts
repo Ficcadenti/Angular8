@@ -2,6 +2,7 @@ import { EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
 import { faEdit, faTrash, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class UserComponent implements OnInit {
   faTrash = faTrash;
   faInfo = faInfo;
 
-  constructor(private service: UserService) { }
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class UserComponent implements OnInit {
 
   editUser(): void {
     this.onSelectUser.emit(this.user);
+    this.router.navigate(['users', this.user.id, 'edit']);
   }
 
   infoUser(): void {

@@ -30,7 +30,7 @@ export class UserDetailComponent implements OnInit {
 
     this.route.params.subscribe((params) => {
       if (!params.id) { return; }
-      this.userSelected = this.service.getUser(+params.id);
+      this.userSelected = this.service.getUser(+params.id); // + -> cast a number
     });
   }
 

@@ -45,7 +45,7 @@ export class UserService {
         return this.users;
     }
     getUser(id: number) {
-        return this.users[id];
+        return this.users.find(user => user.id = id);
     }
 
     deleteUser(user: UserInterface): void {
