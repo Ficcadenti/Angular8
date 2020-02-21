@@ -1,18 +1,18 @@
-<app-nav (onNewUser)="newUser()"></app-nav>
+<app-nav (onSearchUser)="onSearchUser($event)"></app-nav>
 <div class="container-fluid">
     <!--  <app-nav (onNewUser)="newUser()"></app-nav> -->
 
     <h1>User Management System</h1>
     <!-- <app-modal-basic [user-selected]="userSelected"></app-modal-basic>-->
     <div class="row">
-        <!--
-            <div class="col-md-8">
+
+        <!-- <div class="col-md-8">
             <app-users (updateUser)="updateUser($event)"></app-users>
         </div>
-        <div class="col-md-4" *ngIf="showForm">
+        
+             <div class="col-md-4" *ngIf="showForm">
             <app-user-detail [user-selected]="userSelected" (onSaveUser)="onSaveUser($event)"></app-user-detail>
-        </div>
-        -->
+        </div>-->
         <div class="col-12">
             <router-outlet></router-outlet>
         </div>

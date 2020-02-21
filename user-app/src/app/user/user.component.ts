@@ -34,6 +34,6 @@ export class UserComponent implements OnInit {
   }
 
   infoUser(): void {
-    alert(this.user);
+    this.router.navigate(['users', this.user.id]);
   }
 }

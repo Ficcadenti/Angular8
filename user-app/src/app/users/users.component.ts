@@ -1,6 +1,8 @@
 import { EventEmitter, Output, Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
+import { from } from 'rxjs/';
+import { tap, filter } from 'rxjs/operators';
 
 @Component(
     {
@@ -24,10 +26,28 @@ export class UsersComponent implements OnInit {
 
     onDeleteUser(user: User): void {
         this.service.deleteUser(user);
+        this.users = new Array<User>();
+        const o = from(this.service.getUsers()).pipe(
+            filter((u: User) => u.id > 0),
+            tap((u: User) => console.log(JSON.stringify(u)))
+        );
+        o.subscribe(u => this.users.push(u));
+
     }
 
     onSelectUser(user: User): void {
         const userCopy = Object.assign({}, user);
         this.updateUser.emit(userCopy);
+    }
+
+    test(s: string): void {
+        alert("Test: " + s);
+        this.users = new Array();
+
+        const o = from(this.service.getUsers()).pipe(
+            filter((u: User) => u.nome.indexOf(s) > 0),
+            tap((u: User) => console.log(JSON.stringify(u)))
+        );
+        o.subscribe(u => this.users.push(u));
     }
 }

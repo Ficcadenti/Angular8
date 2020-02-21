@@ -1,1 +1,42 @@
-<p>{{userSelected | json}}</p>
+<h1>{{titolo}}</h1>
+<table class="table table-dark">
+    <tr>
+        <th>Nome</th>
+        <td>{{userSelected.nome}}</td>
+    </tr>
+    <tr>
+        <th>Cognome</th>
+        <td>{{userSelected.cognome}}</td>
+    </tr>
+    <tr>
+        <th>cf</th>
+        <td>{{userSelected.cf}}</td>
+    </tr>
+    <tr>
+        <th>mail</th>
+        <td>{{userSelected.mail}}</td>
+    </tr>
+    <tr>
+        <th>Telefono</th>
+        <td>{{userSelected.telefono}}</td>
+    </tr>
+    <tr>
+        <th>Provincia</th>
+        <td>{{userSelected.provincia}}</td>
+    </tr>
+    <tr>
+        <th>Eta</th>
+        <td>{{userSelected.eta}}</td>
+    </tr>
+    <tr>
+        <th>www</th>
+        <td>{{userSelected.www}}</td>
+    </tr>
+    <tfoot>
+        <tr>
+            <td colspan="2" class="text-center">
+                <button class="btn btn-primary" (click)="closeForm()">Close</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>

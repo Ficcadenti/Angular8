@@ -37,10 +37,10 @@ export class UserDetailComponent implements OnInit {
   updateUser(): void {
     if (this.userSelected.id > 0) {
       this.service.updateUser(this.userSelected);
-      this.onSaveUser.emit(this.userSelected);
+      //this.onSaveUser.emit(this.userSelected);
     } else {
       this.service.createUser(this.userSelected);
-      this.onSaveUser.emit(this.userSelected);
+      //this.onSaveUser.emit(this.userSelected);
     }
     this.router.navigate(['users']);
   }
@@ -51,6 +51,10 @@ export class UserDetailComponent implements OnInit {
     } else {
       this.__userSelected = this.userCopy;
     }
+  }
+
+  closeForm(): void {
+    this.router.navigate(['users']);
   }
 
 }

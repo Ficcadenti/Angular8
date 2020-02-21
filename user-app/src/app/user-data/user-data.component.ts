@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../classes/User';
 
 @Component({
@@ -9,10 +9,23 @@ import { User } from '../classes/User';
   styleUrls: ['./user-data.component.css']
 })
 export class UserDataComponent implements OnInit {
-  private userSelected: User;
+  private __userSelected: User;
   private userCopy: User;
 
-  constructor(private service: UserService, private route: ActivatedRoute) { }
+
+  @Output('onSaveUser') onSaveUser = new EventEmitter<User>();
+
+  @Input('user-selected') set userSelected(userSelected) {
+    this.__userSelected = userSelected;
+    this.userCopy = Object.assign({}, userSelected);
+  }
+  get userSelected() {
+    return this.__userSelected;
+  }
+
+  public titolo: string = "User delatil";
+
+  constructor(private service: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.userSelected = new User();
@@ -21,6 +34,10 @@ export class UserDataComponent implements OnInit {
       if (!p.id) { return; }
       this.userSelected = this.service.getUser(+p.id); // + -> cast a number
     });
+  }
+
+  closeForm(): void {
+    this.router.navigate(['users']);
   }
 
 }

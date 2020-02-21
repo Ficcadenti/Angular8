@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { User } from './classes/User';
+import { SelectorMatcher } from '@angular/compiler';
+import { UsersComponent } from './users/users.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ export class AppComponent {
   title: string = 'user-app';
   userSelected: User = new User();
   showForm = false;
+  @ViewChild(UsersComponent) listaUtenti: UsersComponent;
 
   updateUser(user: User): void {
     this.userSelected = user;
@@ -23,5 +26,10 @@ export class AppComponent {
   newUser(): void {
     this.userSelected = new User();
     this.showForm = true;
+  }
+
+  onSearchUser(s: string): void {
+    alert("Chiamo lista utenti con s:" + s);
+    this.listaUtenti.test(s);
   }
 }

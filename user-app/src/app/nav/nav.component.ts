@@ -6,7 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  @Output() onNewUser = new EventEmitter();
+  //@Output('onNewUser') onNewUser = new EventEmitter<string>();
+  @Output('onSearchUser') onSearchUser = new EventEmitter();
   showMenu: boolean = false;
 
   constructor() {
@@ -16,11 +17,18 @@ export class NavComponent implements OnInit {
   }
 
   newUser(): void {
-    this.onNewUser.emit();
+    //this.onNewUser.emit();
   }
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
   }
 
+  onKey(event: any): void {
+    const s: string = event.target.value
+    if (s.length > 3) {
+      alert("emetto evento:" + s);
+      this.onSearchUser.emit(s);
+    }
+  }
 }
