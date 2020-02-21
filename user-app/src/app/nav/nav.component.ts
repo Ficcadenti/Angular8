@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,10 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   //@Output('onNewUser') onNewUser = new EventEmitter<string>();
-  @Output('onSearchUser') onSearchUser = new EventEmitter();
+  //@Output('onSearchUser') onSearchUser = new EventEmitter();
   showMenu: boolean = false;
 
-  constructor() {
+  constructor(private service: UserService) {
   }
 
   ngOnInit() {
@@ -26,9 +27,6 @@ export class NavComponent implements OnInit {
 
   onKey(event: any): void {
     const s: string = event.target.value
-    if (s.length > 3) {
-      alert("emetto evento:" + s);
-      this.onSearchUser.emit(s);
-    }
+    this.service.changeUsernameSearch(s);
   }
 }

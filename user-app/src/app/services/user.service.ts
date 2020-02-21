@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../interfaces/UserInterface';
+import { BehaviorSubject } from 'rxjs/';
 
 @Injectable()
 export class UserService {
-    users: Array<UserInterface> = [
+    private users: Array<UserInterface> = [
         {
             id: 1,
             nome: 'Raffaele',
@@ -38,9 +39,18 @@ export class UserService {
             www: 'http://www.raffaeleficcadenti.it/'
         }
     ];
+
+    private usernameSearch = new BehaviorSubject<string>('');
+    username = this.usernameSearch.asObservable()
+
     constructor() {
 
     }
+
+    changeUsernameSearch(username: string) {
+        this.usernameSearch.next(username);
+    }
+
     getUsers(): Array<UserInterface> {
         return this.users;
     }

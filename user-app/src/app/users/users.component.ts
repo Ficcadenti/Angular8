@@ -22,6 +22,9 @@ export class UsersComponent implements OnInit {
 
     ngOnInit(): void {
         this.users = this.service.getUsers();
+        this.service.username.subscribe(result => {
+            this.test(result);
+        });
     }
 
     onDeleteUser(user: User): void {
@@ -41,13 +44,16 @@ export class UsersComponent implements OnInit {
     }
 
     test(s: string): void {
-        alert("Test: " + s);
-        this.users = new Array();
+        if (s != '') {
+            this.users = new Array();
 
-        const o = from(this.service.getUsers()).pipe(
-            filter((u: User) => u.nome.indexOf(s) > 0),
-            tap((u: User) => console.log(JSON.stringify(u)))
-        );
-        o.subscribe(u => this.users.push(u));
+            const o = from(this.service.getUsers()).pipe(
+                filter((u: User) => u.nome.toUpperCase().indexOf(s.toUpperCase()) >= 0),
+                tap((u: User) => console.log(JSON.stringify(u)))
+            );
+            o.subscribe(u => this.users.push(u));
+        } else {
+            this.users = this.service.getUsers();
+        }
     }
 }
