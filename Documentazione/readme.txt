@@ -23,6 +23,18 @@ https://ng-bootstrap.github.io/#/home
 NGX-Bootstrap
 https://valor-software.com/ngx-bootstrap/#/
 
+Laravel
+https://laravel.com/
+
+MySql
+https://dev.mysql.com/doc/refman/8.0/en/mysql.html
+
+HttpClient
+https://angular.io/guide/http
+
+CORS
+https://developer.mozilla.org/it/docs/Web/HTTP/CORS
+
 #############################################################################################################################################
 #############################################################################################################################################
 #############################################################################################################################################
@@ -85,4 +97,10 @@ $ npm install @fortawesome/free-solid-svg-icons
 # See Compatibility table below to choose a correct version
 $ npm install @fortawesome/angular-fontawesome@<version>
 
+############################### NavBar Search e Observable
+https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject
+https://www.intersysconsulting.com/blog/angular-components/
+https://medium.com/@onejohi/sharing-data-between-components-in-angularjs-c34ff20b7fee
+https://stackoverflow.com/questions/40981306/service-is-not-being-singleton-for-angular2-router-lazy-loading-with-loadchildre
+https://medium.com/@kevinwkds/angular-dependency-injection-service-lazy-loading-18ccb3f423a1
 
