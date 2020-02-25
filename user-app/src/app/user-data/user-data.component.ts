@@ -15,7 +15,7 @@ export class UserDataComponent implements OnInit {
 
   @Output('onSaveUser') onSaveUser = new EventEmitter<User>();
 
-  @Input('user-selected') set userSelected(userSelected) {
+  set userSelected(userSelected) {
     this.__userSelected = userSelected;
     this.userCopy = Object.assign({}, userSelected);
   }
@@ -32,7 +32,8 @@ export class UserDataComponent implements OnInit {
 
     this.route.params.subscribe((p) => {
       if (!p.id) { return; }
-      this.userSelected = this.service.getUser(+p.id); // + -> cast a number
+      //this.userSelected = this.service.getUser(+p.id); // + -> cast a number, senza chiamata al servizio
+      this.service.getUserRest(+p.id).subscribe(u => this.userSelected = u); // chiamata al servizio
     });
   }
 

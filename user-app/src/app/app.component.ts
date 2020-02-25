@@ -14,11 +14,6 @@ export class AppComponent {
   showForm = false;
   @ViewChild(UsersComponent) listaUtenti: UsersComponent;
 
-  updateUser(user: User): void {
-    this.userSelected = user;
-    this.showForm = true;
-  }
-
   onSaveUser(user: User): void {
     this.showForm = false;
   }
@@ -26,10 +21,5 @@ export class AppComponent {
   newUser(): void {
     this.userSelected = new User();
     this.showForm = true;
-  }
-
-  onSearchUser(s: string): void {
-    alert("Chiamo lista utenti con s:" + s);
-    this.listaUtenti.test(s);
   }
 }

@@ -16,6 +16,7 @@ import { NavComponent } from './nav/nav.component';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -53,7 +54,12 @@ const routes: Routes = [
     UserDataComponent
   ],
   imports: [
-    BrowserModule, FormsModule, FontAwesomeModule, NgbModule, RouterModule.forRoot(routes),
+    BrowserModule,
+    FormsModule,
+    FontAwesomeModule,
+    NgbModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

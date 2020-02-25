@@ -2,6 +2,8 @@ import { EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
 import { ActivatedRoute, Router } from '@angular/router';
+import { from } from 'rxjs/';
+import { tap, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,7 +17,7 @@ export class UserDetailComponent implements OnInit {
 
   @Output('onSaveUser') onSaveUser = new EventEmitter<User>();
 
-  @Input('user-selected') set userSelected(userSelected) {
+  set userSelected(userSelected) {
     this.__userSelected = userSelected;
     this.userCopy = Object.assign({}, userSelected);
   }
@@ -27,20 +29,18 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSelected = new User();
-
     this.route.params.subscribe((params) => {
       if (!params.id) { return; }
-      this.userSelected = this.service.getUser(+params.id); // + -> cast a number
+      //this.userSelected = this.service.getUser(+params.id); // + -> cast a number, senza chiamata al servizio
+      this.service.getUserRest(+params.id).subscribe(u => this.userSelected = u); // chiamata al servizio
     });
   }
 
   updateUser(): void {
     if (this.userSelected.id > 0) {
       this.service.updateUser(this.userSelected);
-      //this.onSaveUser.emit(this.userSelected);
     } else {
       this.service.createUser(this.userSelected);
-      //this.onSaveUser.emit(this.userSelected);
     }
     this.router.navigate(['users']);
   }

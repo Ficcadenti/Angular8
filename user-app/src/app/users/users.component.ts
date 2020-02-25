@@ -2,7 +2,7 @@ import { EventEmitter, Output, Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/User';
 import { from } from 'rxjs/';
-import { tap, filter } from 'rxjs/operators';
+import { tap, filter, map } from 'rxjs/operators';
 
 @Component(
     {
@@ -21,10 +21,20 @@ export class UsersComponent implements OnInit {
     constructor(private service: UserService) { }
 
     ngOnInit(): void {
-        this.users = this.service.getUsers();
+        //this.users = this.service.getUsers();
+        this.getUserRest();
         this.service.username.subscribe(result => {
-            this.test(result);
+            this.search(result);
         });
+    }
+
+    getUserRest(): void {
+        this.service.getUsersRest()
+            .pipe(map(u => this.users = u))
+            .subscribe(u => {
+                this.service.setUsers(this.users);
+                console.log("dopo map" + JSON.stringify(this.users));
+            });
     }
 
     onDeleteUser(user: User): void {
@@ -40,10 +50,9 @@ export class UsersComponent implements OnInit {
 
     onSelectUser(user: User): void {
         const userCopy = Object.assign({}, user);
-        this.updateUser.emit(userCopy);
     }
 
-    test(s: string): void {
+    search(s: string): void {
         if (s != '') {
             this.users = new Array();
 
