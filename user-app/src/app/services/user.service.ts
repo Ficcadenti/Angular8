@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { UserInterface } from '../interfaces/UserInterface';
 import { BehaviorSubject, Observable, of, from } from 'rxjs/';
 import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../classes/User';
-const APIURL = 'http://localhost:8080/UserAppRest/api/v1/user';
+
+const APIURL = 'http://localhost:8080/UserAppRest/api/v1/';
 
 @Injectable()
 export class UserService {
@@ -48,6 +49,13 @@ export class UserService {
     private usernameSearch = new BehaviorSubject<string>('');
     username = this.usernameSearch.asObservable()
 
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    };
+
+
     constructor(private http: HttpClient) {
 
     }
@@ -65,8 +73,8 @@ export class UserService {
     }
 
     getUsersRest(): Observable<User[]> {
-        return this.http.get<UserInterface[]>(APIURL).pipe(
-            catchError(this.handleError<UserInterface[]>(APIURL, [])));
+        return this.http.get<UserInterface[]>(APIURL + 'user').pipe(
+            catchError(this.handleError<UserInterface[]>(APIURL + 'user', [])));
     }
 
 
@@ -80,8 +88,8 @@ export class UserService {
     }
 
     getUserRest(id: number) {
-        return this.http.get<UserInterface>(APIURL + '/' + id).pipe(
-            catchError(this.handleError<UserInterface>(APIURL + '/' + id)));
+        return this.http.get<UserInterface>(APIURL + 'user/' + id).pipe(
+            catchError(this.handleError<UserInterface>(APIURL + 'user/' + id)));
     }
 
     deleteUser(user: UserInterface): void {
@@ -96,6 +104,12 @@ export class UserService {
         if (idx != -1) {
             this.users[idx] = user;
         }
+    }
+
+    updateUserRest(user: User) {
+        const obs = this.http.put<User>(APIURL + 'usermod', user, this.httpOptions).pipe(
+            catchError(this.handleError<User>(APIURL + 'usermod')));
+        obs.subscribe(() => this.updateUser(user));
     }
 
     createUser(user: UserInterface) {

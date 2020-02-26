@@ -33,7 +33,6 @@ export class UsersComponent implements OnInit {
             .pipe(map(u => this.users = u))
             .subscribe(u => {
                 this.service.setUsers(this.users);
-                console.log("dopo map" + JSON.stringify(this.users));
             });
     }
 

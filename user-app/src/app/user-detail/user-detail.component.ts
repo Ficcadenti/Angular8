@@ -38,18 +38,20 @@ export class UserDetailComponent implements OnInit {
 
   updateUser(): void {
     if (this.userSelected.id > 0) {
-      this.service.updateUser(this.userSelected);
+      //this.service.updateUser(this.userSelected);
+      this.service.updateUserRest(this.userSelected);
     } else {
+      alert("new User");
       this.service.createUser(this.userSelected);
     }
     this.router.navigate(['users']);
   }
 
   clearForm(form): void {
-    if (this.__userSelected.id === 0) {
-      this.__userSelected = new User();
+    if (this.userSelected.id === 0) {
+      this.userSelected = new User();
     } else {
-      this.__userSelected = this.userCopy;
+      this.userSelected = this.userCopy;
     }
   }
 
