@@ -99,6 +99,12 @@ export class UserService {
         }
     }
 
+    deleteUserRest(user: UserInterface): void {
+        const obs = this.http.delete(APIURL + 'userdel/' + user.id, this.httpOptions).pipe(
+            catchError(this.handleError(APIURL + 'userdel/' + user.id)));
+        obs.subscribe(() => this.deleteUser(user));
+    }
+
     updateUser(user: UserInterface) {
         const idx = this.users.findIndex((v) => v.id === user.id);
         if (idx != -1) {
@@ -115,7 +121,12 @@ export class UserService {
     createUser(user: UserInterface) {
         user.id = this.users.length + 1;
         this.users.splice(0, 0, user);
+    }
 
+    createUserRest(user: UserInterface) {
+        const obs = this.http.post<User>(APIURL + 'useradd', user, this.httpOptions).pipe(
+            catchError(this.handleError<User>(APIURL + 'useradd')));
+        obs.subscribe(() => this.createUser(user));
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

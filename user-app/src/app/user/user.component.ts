@@ -24,12 +24,12 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(): void {
-    //this.service.deleteUser(this.user);
-    this.onDeleteUser.emit(this.user);
+    this.service.deleteUserRest(this.user);
+    //this.onDeleteUser.emit(this.user);
   }
 
   editUser(): void {
-    this.onSelectUser.emit(this.user);
+    //this.onSelectUser.emit(this.user);
     this.router.navigate(['users', this.user.id, 'edit']);
   }
 
