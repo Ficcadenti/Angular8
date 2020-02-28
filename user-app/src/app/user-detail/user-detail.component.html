@@ -1,36 +1,57 @@
 <form class="userForm" #fUserForm="ngForm">
-    <div class="form-group">
-        <label for="nome">Nome</label>
-        <input [(ngModel)]="userSelected.nome" class="form-control" name="nome" id="nome">
-        <!-- input value="{{userSelected.nome}}" name="nome" id="nome"> -->
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="nome">Nome</label>
+            <input required pattern="[a-zA-Z\s]*" minlength="3" #nome="ngModel" placeholder="Nome"
+                [(ngModel)]="userSelected.nome" class="form-control" name="nome" id="nome">
+            <div *ngIf="nome.dirty && nome.touched && nome.invalid">
+                <div class="alert-danger" *ngIf="nome.errors.required">Il campo è
+                    mandatorio</div>
+                <div class="alert-danger" *ngIf="nome.errors.minlength">Il campo è inferire a
+                    {{nome.errors.minlength.requiredLength}} caratteri.</div>
+                <div class="alert-danger" *ngIf="nome.errors.pattern">Il pattern del campo è
+                    {{nome.errors.pattern.requiredPattern}}.</div>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="cognome">Cognome</label>
+            <input placeholder="Cognome" [(ngModel)]="userSelected.cognome" class="form-control" name="cognome"
+                id="cognome">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="cognome">Cognome</label>
-        <input [(ngModel)]="userSelected.cognome" class="form-control" name="cognome" id="cognome">
+    <div class="form-row ">
+        <div class="form-group col-sm-4">
+            <label for="cf">CF</label>
+            <input placeholder="Codice fiscale" [(ngModel)]="userSelected.cf" class="form-control" name="cf" id="cf">
+        </div>
+        <div class="form-group col-sm-8">
+            <label for="email">Email</label>
+            <input placeholder="Email" [(ngModel)]="userSelected.mail" class="form-control" type="email" name="email"
+                id="email">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="cf">CF</label>
-        <input [(ngModel)]="userSelected.cf" class="form-control" name="cf" id="cf">
+    <div class="form-row ">
+        <div class="form-group col-sm-4">
+            <label for="telefono">Telefono</label>
+            <input placeholder="Telefono" [(ngModel)]="userSelected.telefono" class="form-control" name="telefono"
+                id="telefono">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="provincia">Provincia</label>
+            <input placeholder="Provincia" [(ngModel)]="userSelected.provincia" class="form-control" name="provincia"
+                id="provincia">
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="eta">Eta</label>
+            <input [(ngModel)]="userSelected.eta" class="form-control" type="number" name="eta" id="eta">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input [(ngModel)]="userSelected.mail" class="form-control" type="email" name="email" id="email">
-    </div>
-    <div class="form-group">
-        <label for="telefono">Telefono</label>
-        <input [(ngModel)]="userSelected.telefono" class="form-control" name="telefono" id="telefono">
-    </div>
-    <div class="form-group">
-        <label for="provincia">Provincia</label>
-        <input [(ngModel)]="userSelected.provincia" class="form-control" name="provincia" id="provincia">
-    </div>
-    <div class="form-group">
-        <label for="eta">Eta</label>
-        <input [(ngModel)]="userSelected.eta" class="form-control" type="number" name="eta" id="eta">
-    </div>
-    <div class="form-group">
-        <label for="www">www</label>
-        <input [(ngModel)]="userSelected.www" class="form-control" name="www" id="www">
+    <div class="form-row ">
+        <div class="form-group col-sm-6 offset-sm-3">
+            <label for="www">www</label>
+            <input placeholder="www" [(ngModel)]="userSelected.www" class="form-control" name="www" id="www">
+        </div>
     </div>
     <div class="form-group form-footer text-center">
         <div class="row">
@@ -41,7 +62,7 @@
                 <button class="btn btn-primary" (click)="clearForm(fUserForm.form)">Clear</button>
             </div>
             <div class="col-sm-4">
-                <button class="btn btn-success" (click)="updateUser()">Save</button>
+                <button [disabled]="fUserForm.invalid" class="btn btn-success" (click)="updateUser()">Save</button>
             </div>
         </div>
     </div>
