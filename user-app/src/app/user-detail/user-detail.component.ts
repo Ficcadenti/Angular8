@@ -29,11 +29,18 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSelected = new User();
-    this.route.params.subscribe((params) => {
+    this.route.paramMap.subscribe(
+      (params) => {
+        if (!params.get('id')) { return; }
+        this.service.getUserRest(+params.get('id')).subscribe(u => this.userSelected = u); // chiamata al servizio
+      }
+    );
+
+    /*this.route.params.subscribe((params) => {
       if (!params.id) { return; }
       //this.userSelected = this.service.getUser(+params.id); // + -> cast a number, senza chiamata al servizio
       this.service.getUserRest(+params.id).subscribe(u => this.userSelected = u); // chiamata al servizio
-    });
+    });*/
   }
 
   updateUser(): void {

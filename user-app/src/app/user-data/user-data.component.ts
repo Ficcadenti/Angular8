@@ -30,10 +30,10 @@ export class UserDataComponent implements OnInit {
   ngOnInit(): void {
     this.userSelected = new User();
 
-    this.route.params.subscribe((p) => {
-      if (!p.id) { return; }
+    this.route.paramMap.subscribe((p) => {
+      if (!p.get('id')) { return; }
       //this.userSelected = this.service.getUser(+p.id); // + -> cast a number, senza chiamata al servizio
-      this.service.getUserRest(+p.id).subscribe(u => this.userSelected = u); // chiamata al servizio
+      this.service.getUserRest(+p.get('id')).subscribe(u => this.userSelected = u); // chiamata al servizio
     });
   }
 
