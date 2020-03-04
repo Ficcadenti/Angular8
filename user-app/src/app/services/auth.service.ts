@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private isUserLogged = true;
-  constructor() {
+  constructor(private service: UserService) {
 
   }
 
@@ -14,7 +15,9 @@ export class AuthService {
   }
 
   signIn(email: string, password: string): void {
-
+    console.log('email:' + email + ',password:' + password);
+    localStorage.setItem('Token', email);
+    this.service.getTokenRest(email).subscribe(u => console.log('TOKEN: ' + u['token']));
   }
 
   signUp(username: string, email: string, password: string): void {

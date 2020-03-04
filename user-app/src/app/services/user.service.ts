@@ -77,6 +77,13 @@ export class UserService {
             catchError(this.handleError<UserInterface[]>(APIURL + 'user', [])));
     }
 
+    getTokenRest(userId: string): Observable<string> {
+        alert("getToken()");
+        return this.http.get<string>(APIURL + 'token/' + userId).pipe(
+            catchError(this.handleError<string>(APIURL + 'token/' + userId)));
+    }
+
+
 
     getUser(id: number) {
         if (this.users != undefined) {
