@@ -48,6 +48,6 @@ import { LoginComponent } from './login/login.component';
 export class AppModule {
   constructor(private library: FaIconLibrary) {
     library.addIcons(farFileAlt, farEdit, farTrashAlt);
-    console.log(library);
+    console.log("Library: "+library);
   }
 }
