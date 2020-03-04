@@ -78,6 +78,7 @@ ng version
 
 ########## Creare app helloworld
 ng new helloworld
+ng g s services/auth --skipTests=true
 
 ########## Lanciare app helloworld
 ng serve

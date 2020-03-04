@@ -16,7 +16,9 @@ import { NavComponent } from './nav/nav.component';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { HttpClientModule } from '@angular/common/http';
-import {RoutingModuleModule} from './routing-module.module';
+import { RoutingModuleModule } from './routing-module.module';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -29,7 +31,8 @@ import {RoutingModuleModule} from './routing-module.module';
     UserDetailComponent,
     NavComponent,
     ModalBasicComponent,
-    UserDataComponent
+    UserDataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import {RoutingModuleModule} from './routing-module.module';
     HttpClientModule,
     RoutingModuleModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
